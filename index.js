@@ -80,10 +80,10 @@
             function relocateCat() { //cat changes place after you find it
                 cat.x = Math.floor(Math.random()*6);
                 cat.y = Math.floor(Math.random()*6);
-                if (cat.x == player.x && cat.y == player.y){
+                if (cat.x == player.x && cat.y == player.y){ //function resets if cata appears on player
                     relocateCat();
                 }
-                if (cat.x == zombie.x && cat.y == zombie.y){
+                if (cat.x == zombie.x && cat.y == zombie.y){ //function resets if cat appears on zombie
                     relocateCat();
                 }
             }
@@ -95,14 +95,14 @@
                 }               
             }
 
-            function winGame(){ //finding 3 cats wins the game
+            function winGame(){ //finding 3 cats (reaching score = 3) wins the game
                 if(score == 3){
                     window.alert("Congratulations you found all the cats and won the game!");
                     window.location.replace("index.html");
                 }
             }
 
-            function findZombie() { //finding a zombie gives a shitty alert(temporary)
+            function findZombie() { //finding a zombie loses the game
                 if (player.x == zombie.x && player.y == zombie.y) {
                     window.alert("Zombie caught you! You found " + score + " cats before you died!");
                     window.location.replace("zombie.html");
@@ -201,6 +201,6 @@
                 }
 
                 function background() { //This changes the background based on player coordinates
-                    let bgPic = "pics/" + player.x.toString() + player.y.toString() + ".jpeg"; //this types up pics/33.jpeg
-                    document.getElementById('container').style.backgroundImage = "url(" + bgPic + ")"; //this types up url(pics/33.jpeg)
+                    let bgPic = "pics/" + player.x.toString() + player.y.toString() + ".jpeg"; //this types up "pics/33.jpeg"
+                    document.getElementById('container').style.backgroundImage = "url(" + bgPic + ")"; //this types up "url(pics/33.jpeg)"
                 }
